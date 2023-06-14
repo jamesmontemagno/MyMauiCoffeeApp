@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+             xmlns:viewmodels="clr-namespace:MyCoffeeApp.ViewModels"
+             x:Class="MyCoffeeApp.Views.AnimationPage"
+             x:DataType="viewmodels:ImageCacheViewModel"
+             Title="Animations"
+             xmlns:fontawesome="clr-namespace:FontAwesome"
+             xmlns:helpers="clr-namespace:MyCoffeeApp.Helpers"
+    BackgroundColor="{AppThemeBinding 
+                        Dark={StaticResource WindowBackgroundColorDark}, 
+                        Light={StaticResource WindowBackgroundColor}}">
+
+    <StackLayout>
+        <Button Text="Animate" 
+                IsEnabled="{Binding IsNotBusy}"
+                Command="{Binding RefreshLongCommand}"/>
+
+        <Label Text="{x:Static fontawesome:FontAwesomeIcons.Spinner}"
+               FontFamily="FAS" 
+               x:Name="LabelLoad"
+               IsVisible="{Binding IsBusy}"
+               FontSize="80"
+               Style="{StaticResource LabelLarge}"
+               HorizontalOptions="Center"/>
+    </StackLayout>
+
+</ContentPage>

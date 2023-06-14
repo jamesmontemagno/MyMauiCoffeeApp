@@ -1,0 +1,88 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="MyCoffeeApp.Views.CoffeeEquipmentCVPage"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:android="clr-namespace:Microsoft.Maui.Controls.PlatformConfiguration.AndroidSpecific;assembly=Microsoft.Maui.Controls"
+    xmlns:model="clr-namespace:MyCoffeeApp.Shared.Models;assembly=MyCoffeeApp.Shared"
+    xmlns:mvvm="clr-namespace:MvvmHelpers;assembly=MvvmHelpers"
+    xmlns:viewmodels="clr-namespace:MyCoffeeApp.ViewModels" 
+    xmlns:cells="clr-namespace:MyCoffeeApp.Cells"
+    x:Name="CoffeePage"
+    x:DataType="viewmodels:CoffeeEquipmentViewModel"
+    BackgroundColor="{AppThemeBinding 
+                    Dark={StaticResource WindowBackgroundColorDark}, 
+                    Light={StaticResource WindowBackgroundColor}}">
+    <RefreshView
+        Command="{Binding RefreshCommand}"
+        IsRefreshing="{Binding IsBusy, Mode=OneWay}"
+        Style="{StaticResource BaseRefreshView}">
+
+        <CollectionView
+            BackgroundColor="Transparent"
+            IsGrouped="True"
+            ItemSizingStrategy="MeasureAllItems"
+            ItemsLayout="VerticalList"
+            ItemsSource="{Binding CoffeeGroups}"
+            RemainingItemsThreshold="1"
+            RemainingItemsThresholdReachedCommand="{Binding DelayLoadMoreCommand}"
+            SelectedItem="{Binding SelectedCoffee, Mode=TwoWay}"
+            SelectionMode="Single">
+            <CollectionView.EmptyView>
+                <StackLayout Padding="12">
+                    <Label HorizontalOptions="Center" Text="No coffee" />
+                </StackLayout>
+            </CollectionView.EmptyView>
+            <CollectionView.GroupHeaderTemplate>
+                <DataTemplate x:DataType="{x:Null}">
+                    <StackLayout Padding="12">
+                        <Label Style="{StaticResource LabelMedium}" Text="{Binding Key}" />
+                    </StackLayout>
+                </DataTemplate>
+            </CollectionView.GroupHeaderTemplate>
+            <CollectionView.ItemTemplate>
+                <DataTemplate x:DataType="model:Coffee">
+                    <SwipeView android:SwipeView.SwipeTransitionMode="Drag"
+                               BackgroundColor="{AppThemeBinding 
+                                Dark={StaticResource WindowBackgroundColorDark}, 
+                                Light={StaticResource WindowBackgroundColor}}">
+                        <SwipeView.RightItems>
+                            <SwipeItems>
+                                <SwipeItem
+                                    BackgroundColor="Orange"
+                                    Command="{Binding Source={RelativeSource AncestorType={x:Type viewmodels:CoffeeEquipmentViewModel}}, Path=FavoriteCommand}"
+                                    CommandParameter="{Binding .}"
+                                    Text="Favorite" />
+                                <SwipeItem
+                                    BackgroundColor="Red"
+                                    IsDestructive="True"
+                                    Text="Delete" />
+                            </SwipeItems>
+                        </SwipeView.RightItems>
+                        <cells:CoffeeCard/>
+                    </SwipeView>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+            <CollectionView.Header>
+                <StackLayout Orientation="Horizontal">
+                    <Label
+                        HorizontalOptions="Center"
+                        Style="{StaticResource LabelMedium}"
+                        Text="Coffee of the World" />
+                </StackLayout>
+            </CollectionView.Header>
+            <CollectionView.Footer>
+                <StackLayout HorizontalOptions="Center" Orientation="Horizontal">
+                    <Button
+                        Command="{Binding LoadMoreCommand}"
+                        Style="{StaticResource ButtonOutline}"
+                        Text="Load More" />
+                    <Button
+                        Command="{Binding ClearCommand}"
+                        Style="{StaticResource ButtonOutline}"
+                        Text="Clear" />
+                </StackLayout>
+            </CollectionView.Footer>
+        </CollectionView>
+    </RefreshView>
+</ContentPage>
