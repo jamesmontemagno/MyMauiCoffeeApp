@@ -4,8 +4,8 @@ using MyCoffeeApp.Services;
 using Microsoft.Extensions.DependencyInjection;
 using MyCoffeeApp.Views;
 
+[assembly: XamlCompilation(XamlCompilationOptions.Skip)]
 namespace MyCoffeeApp;
-
 public static class MauiProgram
 {
     public static MauiApp CreateMauiApp()
