@@ -22,13 +22,13 @@ public partial class AddMyCoffeeViewModel : ViewModelBase
     [RelayCommand]
     async Task Save()
     {
-        if(string.IsNullOrWhiteSpace(name) ||
-            string.IsNullOrWhiteSpace(roaster))
+        if(string.IsNullOrWhiteSpace(Name) ||
+            string.IsNullOrWhiteSpace(Roaster))
         {
             return;
         }
 
-        await coffeeService.AddCoffee(name, roaster);
+        await coffeeService.AddCoffee(Name, Roaster);
 
         await Shell.Current.GoToAsync("..");
     }
