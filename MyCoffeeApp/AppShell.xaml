@@ -80,7 +80,17 @@
         <ShellContent ContentTemplate="{DataTemplate local:LoginPage}"/>
     </ShellItem>-->
 
-
+    <FlyoutItem Title="Equipment - CV">
+        <FlyoutItem.Icon>
+            <FontImageSource FontFamily="FAS"
+                             Color="{AppThemeBinding 
+                                    Dark=White, 
+                                    Light={StaticResource SystemGray5Dark}}"
+                             Glyph="{x:Static fontAwesome:FontAwesomeIcons.MugHot}"/>
+        </FlyoutItem.Icon>
+        <ShellContent ContentTemplate="{DataTemplate local:CoffeeEquipmentCVPage}" Route="CoffeeEquipmentCVPage" />
+    </FlyoutItem>
+    
     <FlyoutItem Title="Equipment">
         <FlyoutItem.Icon>
             <FontImageSource FontFamily="FAS"
@@ -112,18 +122,7 @@
             <ShellContent Title="tab 2" ContentTemplate="{DataTemplate local:CoffeeEquipmentPage}" Route="CoffeeEquipmentPage3" />
         </Tab>
     </FlyoutItem>
-
    
-    <FlyoutItem Title="Equipment - CV">
-        <FlyoutItem.Icon>
-            <FontImageSource FontFamily="FAS"
-                             Color="{AppThemeBinding 
-                                    Dark=White, 
-                                    Light={StaticResource SystemGray5Dark}}"
-                             Glyph="{x:Static fontAwesome:FontAwesomeIcons.MugHot}"/>
-        </FlyoutItem.Icon>
-        <ShellContent ContentTemplate="{DataTemplate local:CoffeeEquipmentCVPage}" Route="CoffeeEquipmentCVPage" />
-    </FlyoutItem>
 
   
     <FlyoutItem Title="My Coffee">

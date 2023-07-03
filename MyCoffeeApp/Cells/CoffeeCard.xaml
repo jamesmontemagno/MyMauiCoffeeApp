@@ -8,7 +8,7 @@
     Padding="10">
     <Frame Style="{StaticResource CoffeeCard}">
         <StackLayout Orientation="Horizontal">
-            <Image Source="{Binding Image}" WidthRequest="66" />
+            <Image Source="coffeebag.png" WidthRequest="66" />
             <StackLayout VerticalOptions="Center">
                 <Label
                         Style="{StaticResource LabelLarge}"
