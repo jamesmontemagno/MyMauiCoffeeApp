@@ -12,6 +12,8 @@
                     Light={StaticResource WindowBackgroundColor}}"
     >
 
+
+
  
     <Shell.Resources>
         <ResourceDictionary>

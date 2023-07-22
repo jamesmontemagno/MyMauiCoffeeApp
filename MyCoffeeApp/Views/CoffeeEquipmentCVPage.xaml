@@ -14,6 +14,55 @@
     x:DataType="viewmodels:CoffeeEquipmentViewModel"
     BackgroundColor="{AppThemeBinding Dark={StaticResource WindowBackgroundColorDark},
                                       Light={StaticResource WindowBackgroundColor}}">
+
+    <ContentPage.MenuBarItems>
+        <MenuBarItem Text="File">
+
+            <MenuFlyoutSubItem Text="New">
+                <MenuFlyoutItem Text="New project"/>
+                <MenuFlyoutItem Text="New file"/>
+                <MenuFlyoutItem Text="New class"/>
+                <MenuFlyoutItem Text="New new"/>
+            </MenuFlyoutSubItem>
+            <MenuFlyoutItem Text="Open"/>
+
+            <MenuFlyoutSeparator/>
+            <MenuFlyoutItem Text="Save"/>
+            <MenuFlyoutItem Text="Save as"/>
+            <MenuFlyoutSeparator/>
+            <MenuFlyoutItem Text="Exit"/>
+
+        </MenuBarItem>
+        <MenuBarItem Text="Edit">
+            <MenuFlyoutItem Text="Favorite">
+                <MenuFlyoutItem.IconImageSource>
+                    <FontImageSource FontFamily="FAS"
+                                                 Color="{AppThemeBinding 
+                                                        Dark=White, 
+                                                        Light={StaticResource SystemGray5Dark}}"
+                                                 Glyph="{x:Static fontAwesome:FontAwesomeIcons.MugHot}"/>
+                </MenuFlyoutItem.IconImageSource>
+            </MenuFlyoutItem>
+            <MenuFlyoutSeparator/>
+            <MenuFlyoutItem Text="Delete"/>
+
+            <MenuFlyoutSeparator/>
+            <MenuFlyoutSubItem Text="Options">
+                <MenuFlyoutItem Text="Option 1"/>
+                <MenuFlyoutItem Text="Option 2"/>
+                <MenuFlyoutItem Text="Option 3"/>
+                <MenuFlyoutItem Text="Option 4"/>
+
+            </MenuFlyoutSubItem>
+        </MenuBarItem>
+        <MenuBarItem Text="Window">
+
+        </MenuBarItem>
+        <MenuBarItem Text="Help">
+
+        </MenuBarItem>
+    </ContentPage.MenuBarItems>
+    
     <RefreshView
         Command="{Binding RefreshCommand}"
         IsRefreshing="{Binding IsBusy, Mode=OneWay}"
