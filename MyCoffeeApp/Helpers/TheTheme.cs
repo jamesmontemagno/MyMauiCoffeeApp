@@ -1,8 +1,15 @@
 ﻿namespace MyCoffeeApp.Helpers;
 
-public static class TheTheme
+public class TheTheme
 {
-    public static void SetTheme()
+    IEnvironment environment;
+
+    public TheTheme(IEnvironment environment)
+    {
+        this.environment = environment;
+    }
+
+    public void SetTheme()
     {
         switch(Settings.Theme)
         {
@@ -22,13 +29,12 @@ public static class TheTheme
 
         var nav = App.Current.MainPage as NavigationPage;
 
-        var e = DependencyService.Get<IEnvironment>();
-        if (e is null)
+        if (environment is null)
             return;
 
         if(App.Current.RequestedTheme == AppTheme.Dark)
         {
-            e?.SetStatusBarColor(Colors.Black, false);
+            environment?.SetStatusBarColor(Colors.Black, false);
             if(nav != null)
             {
                 nav.BarBackgroundColor = Colors.Black;
@@ -37,7 +43,7 @@ public static class TheTheme
         }
         else
         {
-            e?.SetStatusBarColor(Colors.White, true);
+            environment?.SetStatusBarColor(Colors.White, true);
             if (nav != null)
             {
                 nav.BarBackgroundColor = Colors.White;

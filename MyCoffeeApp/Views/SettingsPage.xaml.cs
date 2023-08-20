@@ -4,8 +4,10 @@ namespace MyCoffeeApp.Views;
 
 public partial class SettingsPage : ContentPage
 {
-    public SettingsPage()
+    TheTheme theme;
+    public SettingsPage(TheTheme theme)
     {
+        this.theme = theme;
         InitializeComponent();
         switch (Settings.Theme)
         {
@@ -53,6 +55,6 @@ public partial class SettingsPage : ContentPage
                 break;
         }
 
-        TheTheme.SetTheme();
+        theme.SetTheme();
     }
 }

@@ -5,22 +5,38 @@ namespace MyCoffeeApp;
 
 public partial class App : Application
 {
-    public App()
+    TheTheme theme;
+    public App(TheTheme theme)
     {
         InitializeComponent();
         Barrel.ApplicationId = AppInfo.PackageName;
         MainPage = new AppShell();
+        this.theme = theme;
+    }
+
+    protected override void OnStart()
+    {
+        base.OnStart();
+        try
+        {
+            theme.SetTheme();
+
+        }
+        catch (Exception)
+        {
+
+        }
     }
 
     protected override void OnSleep()
     {
-        TheTheme.SetTheme();
+        theme.SetTheme();
         RequestedThemeChanged -= App_RequestedThemeChanged;
     }
 
     protected override void OnResume()
     {
-        TheTheme.SetTheme();
+        theme.SetTheme();
         RequestedThemeChanged += App_RequestedThemeChanged;
     }
 
@@ -28,7 +44,7 @@ public partial class App : Application
     {
         MainThread.BeginInvokeOnMainThread(() =>
         {
-            TheTheme.SetTheme();
+            theme.SetTheme();
         });
     }
 }

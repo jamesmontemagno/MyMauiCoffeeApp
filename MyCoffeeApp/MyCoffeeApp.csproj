@@ -49,6 +49,15 @@
 		<MauiAsset Include="Resources\Raw\**" LogicalName="%(RecursiveDir)%(Filename)%(Extension)" />
 	</ItemGroup>
 
+	<ItemGroup>
+	  <None Remove="Resources\Fonts\CustomFont.ttf" />
+	  <None Remove="Resources\Fonts\fabrands.ttf" />
+	  <None Remove="Resources\Fonts\faregular.ttf" />
+	  <None Remove="Resources\Fonts\fasolid.ttf" />
+	  <None Remove="Resources\Fonts\OpenSans-Regular.ttf" />
+	  <None Remove="Resources\Fonts\OpenSans-Semibold.ttf" />
+	</ItemGroup>
+
 
 	<ItemGroup>
 		<PackageReference Include="CommunityToolkit.Mvvm" Version="8.2.0" />
