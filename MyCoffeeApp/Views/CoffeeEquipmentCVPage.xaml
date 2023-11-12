@@ -5,11 +5,11 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:android="clr-namespace:Microsoft.Maui.Controls.PlatformConfiguration.AndroidSpecific;assembly=Microsoft.Maui.Controls"
     xmlns:cells="clr-namespace:MyCoffeeApp.Cells"
+    xmlns:fontAwesome="clr-namespace:FontAwesome"
     xmlns:ios="clr-namespace:Microsoft.Maui.Controls.PlatformConfiguration.iOSSpecific;assembly=Microsoft.Maui.Controls"
     xmlns:model="clr-namespace:MyCoffeeApp.Shared.Models;assembly=MyCoffeeApp.Shared"
     xmlns:mvvm="clr-namespace:MvvmHelpers;assembly=MvvmHelpers"
     xmlns:viewmodels="clr-namespace:MyCoffeeApp.ViewModels"
-    xmlns:fontAwesome="clr-namespace:FontAwesome"
     x:Name="CoffeePage"
     x:DataType="viewmodels:CoffeeEquipmentViewModel"
     BackgroundColor="{AppThemeBinding Dark={StaticResource WindowBackgroundColorDark},
@@ -19,50 +19,46 @@
         <MenuBarItem Text="File">
 
             <MenuFlyoutSubItem Text="New">
-                <MenuFlyoutItem Text="New project"/>
-                <MenuFlyoutItem Text="New file"/>
-                <MenuFlyoutItem Text="New class"/>
-                <MenuFlyoutItem Text="New new"/>
+                <MenuFlyoutItem Clicked="MenuFlyoutItem_Clicked_1" Text="New project" />
+                <MenuFlyoutItem Text="New file" />
+                <MenuFlyoutItem Text="New class" />
+                <MenuFlyoutItem Text="New new" />
             </MenuFlyoutSubItem>
-            <MenuFlyoutItem Text="Open"/>
+            <MenuFlyoutItem Text="Open" />
 
-            <MenuFlyoutSeparator/>
-            <MenuFlyoutItem Text="Save"/>
-            <MenuFlyoutItem Text="Save as"/>
-            <MenuFlyoutSeparator/>
-            <MenuFlyoutItem Text="Exit"/>
+            <MenuFlyoutSeparator />
+            <MenuFlyoutItem Text="Save" />
+            <MenuFlyoutItem Text="Save as" />
+            <MenuFlyoutSeparator />
+            <MenuFlyoutItem Text="Exit" />
 
         </MenuBarItem>
         <MenuBarItem Text="Edit">
             <MenuFlyoutItem Text="Favorite">
                 <MenuFlyoutItem.IconImageSource>
-                    <FontImageSource FontFamily="FAS"
-                                                 Color="{AppThemeBinding 
-                                                        Dark=White, 
-                                                        Light={StaticResource SystemGray5Dark}}"
-                                                 Glyph="{x:Static fontAwesome:FontAwesomeIcons.MugHot}"/>
+                    <FontImageSource
+                        FontFamily="FAS"
+                        Glyph="{x:Static fontAwesome:FontAwesomeIcons.MugHot}"
+                        Color="{AppThemeBinding Dark=White,
+                                                Light={StaticResource SystemGray5Dark}}" />
                 </MenuFlyoutItem.IconImageSource>
             </MenuFlyoutItem>
-            <MenuFlyoutSeparator/>
-            <MenuFlyoutItem Text="Delete"/>
+            <MenuFlyoutSeparator />
+            <MenuFlyoutItem Text="Delete" />
 
-            <MenuFlyoutSeparator/>
+            <MenuFlyoutSeparator />
             <MenuFlyoutSubItem Text="Options">
-                <MenuFlyoutItem Text="Option 1"/>
-                <MenuFlyoutItem Text="Option 2"/>
-                <MenuFlyoutItem Text="Option 3"/>
-                <MenuFlyoutItem Text="Option 4"/>
+                <MenuFlyoutItem Text="Option 1" />
+                <MenuFlyoutItem Text="Option 2" />
+                <MenuFlyoutItem Text="Option 3" />
+                <MenuFlyoutItem Text="Option 4" />
 
             </MenuFlyoutSubItem>
         </MenuBarItem>
-        <MenuBarItem Text="Window">
-
-        </MenuBarItem>
-        <MenuBarItem Text="Help">
-
-        </MenuBarItem>
+        <MenuBarItem Text="Window" />
+        <MenuBarItem Text="Help" />
     </ContentPage.MenuBarItems>
-    
+
     <RefreshView
         Command="{Binding RefreshCommand}"
         IsRefreshing="{Binding IsBusy, Mode=OneWay}"
@@ -104,8 +100,8 @@
                             <SwipeItems SwipeBehaviorOnInvoked="Close">
                                 <SwipeItem
                                     BackgroundColor="Pink"
-                                    CommandParameter="{Binding .}"
                                     Command="{Binding Source={RelativeSource AncestorType={x:Type viewmodels:CoffeeEquipmentViewModel}}, Path=FavoriteCommand}"
+                                    CommandParameter="{Binding .}"
                                     IconImageSource="dotnet_bot.png"
                                     Text="Favorite" />
                                 <SwipeItem Text="Delete" />
@@ -149,35 +145,35 @@
                         <cells:CoffeeCard>
                             <FlyoutBase.ContextFlyout>
                                 <MenuFlyout>
-                                    <MenuFlyoutItem Text="Favorite"
-                                                    
-                                                    CommandParameter="{Binding .}"
-                                                    Command="{Binding Source={x:Reference CoffeePage}, Path=BindingContext.FavoriteCommand}">
+                                    <MenuFlyoutItem
+                                        Command="{Binding Source={x:Reference CoffeePage}, Path=BindingContext.FavoriteCommand}"
+                                        CommandParameter="{Binding .}"
+                                        Text="Favorite">
                                         <MenuFlyoutItem.IconImageSource>
-                                            <FontImageSource FontFamily="FAS"
-                                                 Color="{AppThemeBinding 
-                                                        Dark=White, 
-                                                        Light={StaticResource SystemGray5Dark}}"
-                                                 Glyph="{x:Static fontAwesome:FontAwesomeIcons.MugHot}"/>
+                                            <FontImageSource
+                                                FontFamily="FAS"
+                                                Glyph="{x:Static fontAwesome:FontAwesomeIcons.MugHot}"
+                                                Color="{AppThemeBinding Dark=White,
+                                                                        Light={StaticResource SystemGray5Dark}}" />
                                         </MenuFlyoutItem.IconImageSource>
                                     </MenuFlyoutItem>
-                                    <MenuFlyoutSeparator/>
-                                    <MenuFlyoutItem Text="Delete"/>
+                                    <MenuFlyoutSeparator />
+                                    <MenuFlyoutItem Text="Delete" />
 
-                                    <MenuFlyoutSeparator/>
+                                    <MenuFlyoutSeparator />
                                     <MenuFlyoutSubItem Text="Options">
-                                        <MenuFlyoutItem Text="Option 1"/>
-                                        <MenuFlyoutItem Text="Option 2"/>
-                                        <MenuFlyoutItem Text="Option 3"/>
-                                        <MenuFlyoutItem Text="Option 4"/>
+                                        <MenuFlyoutItem Text="Option 1" />
+                                        <MenuFlyoutItem Text="Option 2" />
+                                        <MenuFlyoutItem Text="Option 3" />
+                                        <MenuFlyoutItem Text="Option 4" />
 
                                     </MenuFlyoutSubItem>
 
 
                                 </MenuFlyout>
-                                
+
                             </FlyoutBase.ContextFlyout>
-                            
+
                         </cells:CoffeeCard>
                     </SwipeView>
 

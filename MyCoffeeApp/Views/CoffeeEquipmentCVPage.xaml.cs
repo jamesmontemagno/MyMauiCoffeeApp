@@ -37,4 +37,9 @@ public partial class CoffeeEquipmentCVPage : ContentPage
         await Shell.Current.DisplayAlert("Coffee Favorited",
             coffee.Name, "OK");
     }
+
+    private async void MenuFlyoutItem_Clicked_1Async(object sender, EventArgs e)
+    {
+        await Shell.Current.DisplayAlert("Menu item clicked!", "You did it!", "OK");
+    }
 }
