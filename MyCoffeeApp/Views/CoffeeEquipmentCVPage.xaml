@@ -19,7 +19,15 @@
         <MenuBarItem Text="File">
 
             <MenuFlyoutSubItem Text="New">
-                <MenuFlyoutItem Clicked="MenuFlyoutItem_Clicked_1" Text="New project" />
+                <MenuFlyoutItem
+                    x:Name="MenuItemNew"
+                    Clicked="MenuFlyoutItem_Clicked_1"
+                    Text="New project">
+                    <MenuFlyoutItem.KeyboardAccelerators>
+                        <KeyboardAccelerator Key="N" Modifiers="Ctrl" />
+                    </MenuFlyoutItem.KeyboardAccelerators>
+                </MenuFlyoutItem>
+
                 <MenuFlyoutItem Text="New file" />
                 <MenuFlyoutItem Text="New class" />
                 <MenuFlyoutItem Text="New new" />
@@ -110,7 +118,6 @@
                         </SwipeView.RightItems>
                         <SwipeView.LeftItems>
                             <SwipeItems SwipeBehaviorOnInvoked="Close">
-
                                 <SwipeItemView>
                                     <Frame
                                         Padding="0"

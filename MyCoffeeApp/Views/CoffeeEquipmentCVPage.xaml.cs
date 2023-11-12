@@ -8,6 +8,13 @@ public partial class CoffeeEquipmentCVPage : ContentPage
     {
         InitializeComponent();
         BindingContext = vm;
+
+        //MenuItemNew.KeyboardAccelerators.Add(
+        //    new KeyboardAccelerator
+        //    {
+        //        Modifiers = KeyboardAcceleratorModifiers.Ctrl,
+        //        Key = "N"
+        //    });
     }
 
     private async void SwipeItem_Invoked(object sender, EventArgs e)
@@ -38,7 +45,7 @@ public partial class CoffeeEquipmentCVPage : ContentPage
             coffee.Name, "OK");
     }
 
-    private async void MenuFlyoutItem_Clicked_1Async(object sender, EventArgs e)
+    private async void MenuFlyoutItem_Clicked_1(object sender, EventArgs e)
     {
         await Shell.Current.DisplayAlert("Menu item clicked!", "You did it!", "OK");
     }
